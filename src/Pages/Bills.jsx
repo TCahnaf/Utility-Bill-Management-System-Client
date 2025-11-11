@@ -3,7 +3,7 @@ import React from 'react';
 const Bills = () => {
     return (
         <div>
-            <h1> Bills Will be rendered HERE !!!</h1>
+            <h1 className='heading'> Bills Will be rendered HERE !!!</h1>
             
         </div>
     );

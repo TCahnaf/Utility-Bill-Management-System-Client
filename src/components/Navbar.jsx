@@ -4,25 +4,27 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 
 
+
+
 const Navbar = () => {
 
      const {user,logOut} =  use(AuthContext)
+    
+  
 
     return (
-        <div>
-             <nav className='flex flex-col md:flex-row gap-3 justify-between items-center font-bold py-3 lg:py-6 px-4 lg:px-16 border-b-2 bg-gray-400 '>
-                <div> <p>Image</p>
-                </div>
-                <div className='flex gap-3 text-lg'>
-                    {/* <NavLink  to = {'/about'}>About</NavLink> */}
-                    <NavLink  to = {'/'}>Home</NavLink>
-                 
-                    <NavLink  to = {'/bills'}>Bills</NavLink>
-                    <NavLink to = {'/mybills'}>Manage Your Bills</NavLink>
-                    <NavLink to = {'/bill/details'}>Bill Details</NavLink>
-
+        <div className=''>
+             <nav className = 'flex flex-col md:flex-row gap-3 justify-between items-center font-bold py-3 lg:py-6 px-4 lg:px-16 bg-gradient-to-r from-[#0b1e3d] via-[#13284f] to-[#1a3570] text-white '>
+                <div> <p>LOGO</p>
                 </div>
 
+                <div className=' font-bold flex flex-col items-center'>
+                    <h1 className='font-poppins text-xl w-full'>Palm</h1>
+                    <h2 className='font-poppins text-lg w-3/4' >Jumerirah</h2>
+                    <h3 className='font-poppins text-m w-1/2' >Aparments</h3>
+                    
+                </div>
+               
               
 
                     {!user?( <div className='flex flex-col items-center gap-3'>
@@ -56,9 +58,29 @@ const Navbar = () => {
                
             </nav>
 
+            <div className='bg-amber-700'>
 
-            
-        </div>)
+          
+
+ <div className='flex gap-6 text-lg justify-center font-poppins'>
+                    {/* <NavLink  to = {'/about'}>About</NavLink> */}
+                    <Link  to = {'/'}>Home</Link>
+                 
+                    <Link  to = {'/bills'}>Bills</Link>
+                    <Link to = {'/mybills'}>Manage Your Bills</Link>
+                    <Link to = {'/bill/details'}>Bill Details</Link>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        
+        
+        
+    
+    )
     
 };
 

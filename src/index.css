@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+
+body {
+  font-family: 'Inter';
+  background-color: linear-gradient(to right, #facc15, #fef08a, #b45309);
+}
+
+.font-poppins {
+    font-family: 'Poppins';
+}
