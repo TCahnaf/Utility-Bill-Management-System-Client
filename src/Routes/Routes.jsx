@@ -37,6 +37,10 @@ export const router = createBrowserRouter([
 
               {
                 path: '/bills',
+                 loader: async() => {
+                  const res = await fetch('http://localhost:3000/bills')
+                  return res.json();
+                },
                 Component: Bills
             },
 

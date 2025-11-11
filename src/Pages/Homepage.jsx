@@ -1,10 +1,17 @@
 import React from 'react';
 import Slider from '../components/Slider';
 import { Typewriter } from 'react-simple-typewriter';
+import { useLoaderData } from 'react-router';
+import Cards from '../components/Cards';
 
 const Homepage = () => {
+
+  const data = useLoaderData();
+
+
+
     return (
-        <div className='bg-[#d4af37] min-h-screen flex flex-col items-center p-20 '>
+        <div className='bg-[#d4af37] min-h-screen flex flex-col items-center p-20 space-y-4 '>
             
           
 
@@ -50,8 +57,14 @@ const Homepage = () => {
             </div></div>
 
            </div>
+
+           <div className='grid grid-cols-2 lg:grid-cols-3 gap-10'> {data.map(bill => <Cards key={bill._id} bill={bill}></Cards>)}</div>
+
+          
             
              </div >
+
+             
             
             
         
