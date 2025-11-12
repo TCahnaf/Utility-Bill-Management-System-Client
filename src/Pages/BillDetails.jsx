@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { use, useRef } from 'react';
 import { useLoaderData } from 'react-router';
+import { AuthContext } from '../Providers/AuthProvider';
 
 
 const BillDetails = () => {
+
+    const {user} = use(AuthContext);
 
     const bill = useLoaderData();
     const billDate = new Date(bill.date)
     const currentDate = new Date();
     const billValidation = billDate.getFullYear() === currentDate.getFullYear() && billDate.getMonth() === currentDate.getMonth();
     console.log(billValidation)
+    const modalRef = useRef(null)
+
+    const handleModal = () => {
+        modalRef.current.showModal();
+
+    }
 
 
     return (
@@ -48,13 +57,58 @@ const BillDetails = () => {
                   <h1> Due On: {bill.date}</h1>
                 </div>
 
-                <button className = "button" disabled = {!billValidation}>{!billValidation?"Sorry This Bill Is Already Past Due":"Pay Now"}</button>
-
-                
-                
-                
+                <button onClick={handleModal} className = "button" disabled = {!billValidation}>{!billValidation?"Sorry This Bill Is Already Past Due":"Pay Now"}</button>
 
             </div>
+
+          
+<dialog ref = {modalRef} className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Please fill out the feilds!</h3>
+    <form >
+         <fieldset className="fieldset">
+     {/* username */}
+        <label className='label'>Email</label>
+        <input type="email" name = "email" value = {user.email} className='input' readOnly/>
+
+        <label className='label'>BillId</label>
+        <input type="text" name = "" value={bill._id} className='input' readOnly/>
+        
+
+         <label className='label'>Amount Due</label>
+        <input type="text" name='amount' value={bill.amount} className='input' readOnly/>
+
+        <label className='label'>Username</label>
+        <input type="text" name = 'username' placeholder='your username'   className='input' />
+
+           <label className='label'>Address</label>
+        <input type="text" name = 'address' placeholder='provide address '  className='input' />
+
+              <label className='label'>Phone</label>
+        <input type="text" name = 'phone' placeholder='your number'  className='input ' />
+
+           <label className='label'>Date</label>
+        <input type="text" value = {bill.date} name = 'date'  className='input' />
+         <button className='button mt-2 '>Pay Now</button>
+        </fieldset>
+
+       
+        </form>
+
+    <div className="modal-action">
+
+      <form method="dialog">
+        
+       
+       
+
+
+       
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
     
 
 
