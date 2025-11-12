@@ -1,53 +1,82 @@
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const Mybills = () => {
+
+  const [bills, setBills] = useState([]);
+
+  const {user} = use(AuthContext);
+
+  useEffect(()=>{ if(user.email){ fetch(`http://localhost:3000/mybills?email=${user.email}`).
+    then(res => res.json()).
+    then(data => setBills(data) )}}
+  , [user?.email])
+
+  const totalBills = bills.length;
+  let totalAmount = 0
+
+  bills.forEach(bill => {
+    totalAmount += parseInt(bill.amount)
+  })
+
+
+
     return (
-        <div>
-            <h1>User's can manage their Bills here</h1>
-            <div className="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-800">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
-          Electricity Bill
-        </h2>
-        <span className="text-sm text-gray-500 dark:text-gray-400">#INV-2034</span>
-      </div>
+        <div className='p-20 space-y-6 rounded-lg'>
 
-      {/* Bill details */}
-      <div className="space-y-2 text-gray-700 dark:text-gray-300">
-        <div className="flex justify-between">
-          <span>Billing Period:</span>
-          <span className="font-medium">Oct 2025</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Due Date:</span>
-          <span className="font-medium text-red-500">Nov 15, 2025</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Amount Due:</span>
-          <span className="font-semibold text-lg text-green-600">$85.60</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Status:</span>
-          <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-700">
-            Pending
-          </span>
-        </div>
-      </div>
 
-      {/* Divider */}
-      <div className="my-4 border-t border-gray-200 dark:border-gray-700"></div>
+          <div className='border-2 border-sky-700'><h1>You have paid: {totalBills} bills till now</h1>
+          <h1>Total Amount Paid: ${totalAmount}</h1></div>
+          
 
-      {/* Actions */}
-      <div className="flex justify-between items-center">
-        <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
-          View Details
-        </button>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-          Pay Now
-        </button>
-      </div>
-    </div>
+          <div></div>
+          <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Amount</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th className='text-center'>Update</th>
+        <th className='text-center'>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        bills.map((bill,index) => (
+
+          <tr key = {bill._id}>
+            <td> {index+1}</td>
+            <td>{bill.user_name}</td>
+            <td>{bill.email}</td>
+            <td>{bill.amount}</td>
+            <td>{bill.address}</td>
+            <td>{bill.phone}</td>
+            <td>{bill.date}</td>
+            <td><button className='button'>Update This Payment</button></td>
+             <td><button className='button'>Delete This Payment</button></td>
+          </tr>
+      
+      
+        ))
+      }
+      
+
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+          
             
 
             
