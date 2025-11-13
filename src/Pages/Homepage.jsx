@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from '../components/Slider';
 import { Typewriter } from 'react-simple-typewriter';
 import { useLoaderData } from 'react-router';
 import Cards from '../components/Cards';
+import Newsletter from '../components/Newsletter';
+
 
 const Homepage = () => {
+  document.title = "home"
+
+  const[theme, setTheme] = useState('bg-[#C9AE5D]')
+
+  const toggleTheme = () =>{
+    if (theme === "bg-[#C9AE5D]") {
+      setTheme('bg-black')
+    }
+
+    else {
+      setTheme("bg-[#C9AE5D]")
+
+    }
+
+  }
 
   const data = useLoaderData();
 
-
+  
 
     return (
-        <div className='bg-[#d4af37] min-h-screen flex flex-col items-center p-20 space-y-4 '>
-            
-          
 
-            <div className='flex gap-5 items-center justify-center'>
+        <div className={` min-h-screen flex flex-col justify-center items-center p-20 space-y-8 ${theme}`}>
+            <div className=' self-start pr-10'>
+                <button onClick={toggleTheme} className='button2 '>{theme==='bg-[#C9AE5D]'?"view in dark mode":"view in light mode"}</button>
+            </div>
+        
+
+            <div className='flex flex-col-reverse md:flex-row gap-5 items-center justify-center'>
                 <div className="container mx-auto px-4 py-8 max-w-md">
-  <div className="grid grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
     <div className="bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 rounded-lg p-6 shadow-lg text-white">
       <h2 className="text-xl font-extrabold tracking-wide font-poppins mb-2">Electricity ⚡</h2>
@@ -58,7 +78,11 @@ const Homepage = () => {
 
            </div>
 
-           <div className='grid grid-cols-2 lg:grid-cols-3 gap-10'> {data.map(bill => <Cards key={bill._id} bill={bill}></Cards>)}</div>
+           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10'> {data.map(bill => <Cards key={bill._id} bill={bill}></Cards>)}</div>
+
+           <div>
+            <Newsletter></Newsletter>
+           </div>
 
           
             

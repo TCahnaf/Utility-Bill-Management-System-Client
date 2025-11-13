@@ -10,6 +10,7 @@ import Login from "../Pages/Login";
 import Mybills from "../Pages/Mybills";
 import PrivateRoute from "./Privateroute";
 import BillDetails from "../Pages/BillDetails";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,11 @@ export const router = createBrowserRouter([
                     <BillDetails></BillDetails>
                 </PrivateRoute>
 
+            },
+
+            {
+              path: "*",
+              Component:ErrorPage
             }
 
 

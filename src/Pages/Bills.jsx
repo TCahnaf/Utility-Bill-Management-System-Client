@@ -4,6 +4,7 @@ import Cards from '../components/Cards';
 
 
 const Bills = () => {
+    document.title = "bills"
     const totalBills = useLoaderData();
      const [category, setCategory] = useState("");
      const [bills, setBills] = useState(totalBills);
@@ -25,9 +26,9 @@ const Bills = () => {
 
 
     return (
-        <div className=' bg-[#d4af37] min-h-screen   '>
+        <div className=' bg-[#C9AE5D] min-h-screen   '>
             
-<div className="p-4 flex flex-col space-y-2 ">
+<div className=" p-8 lg:p-4 flex flex-col space-y-2 ">
   <label className = "text-2xl">
     Filter Bills By Categories
   </label>
@@ -47,7 +48,7 @@ const Bills = () => {
       <option value="Internet">Internet</option>
     </select>
 
-<div className='flex justify-center'><div className='grid grid-cols-2 lg:grid-cols-3 gap-10 '>
+<div className='flex justify-center'><div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 '>
 
     {
       bills.length === 0 ? <div className='text-center min-h-screen flex flex-col items-center justify-center'><h1 >You currently don't have any {category} Bills Available Now</h1></div>:

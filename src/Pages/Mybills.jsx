@@ -1,8 +1,12 @@
 import React, { use, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const Mybills = () => {
+
+  document.title = "mybills"
 
   const [bills, setBills] = useState([]);
   const [selectedBill, setSelectedBill] = useState(null);
@@ -107,8 +111,29 @@ const handleDeleteModal = (bill) =>{
 
   }
 
+  const reportDownload = () => {
+    const doc = new jsPDF();
+    doc.text('Bill Information Downloaded',20,10)
+    const columns = ["#", "Amount", "Address", "Phone", "Date"];
+  const rows = bills.map((bill, index) => [
+    index + 1,
+    bill.amount,
+    bill.address,
+    bill.phone,
+    bill.date
+  ]);
+
+ autoTable(doc, {
+    head: [columns],
+    body: rows
+  });
+
+  doc.save("my-bills-report.pdf");
+
+  }
+
     return (
-        <div className='p-20 space-y-6 rounded-lg'>
+        <div className='p-20 space-y-6 rounded-lg bg-[#C9AE5D] min-h-screen '>
           <div className='border-2 border-sky-700'><h1>You have paid: {totalBills} bills till now</h1>
           <h1>Total Amount Paid: ${totalAmount}</h1></div>
           
@@ -148,7 +173,12 @@ const handleDeleteModal = (bill) =>{
       }     
     </tbody>
   </table>
+  
 </div>
+<div className='flex mt-10 justify-center'>
+  <button className={`${bills.length === 0?"hidden":"button2"} `} onClick = {reportDownload}>Download Bill Information</button>
+</div>
+
 
 {/* modal for handling update operation */}
  <dialog ref = {updateModalRef} className="modal modal-bottom sm:modal-middle">

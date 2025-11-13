@@ -2,7 +2,6 @@
 @plugin "daisyui";
 
 
-
 body {
   font-family: 'Inter';
 }
@@ -15,7 +14,6 @@ body {
 h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700; 
-  color: #1a1a1a;
   font-size: 24px; 
   text-align: center;
   line-height: 28px;
@@ -29,30 +27,21 @@ h1 {
 }
 
 
-p {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #f1f1f1;
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  margin-bottom: 12px;
-  text-align: center;
+.card p {
+
+  font-size: 18px;
+
+
 }
 
 
 
-
-
-.gold-text{
-  color:#d4af37;
-}
 
 .button {
-  background-color: #d4af37;
+  background-color: #C9AE5D;
   color: #1a1a1a; 
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   padding: 10px 24px;
   border: none;
   border-radius: 12px;
@@ -64,7 +53,8 @@ p {
 .button:hover {
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 0 25px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.4);
-  background-color: #e3c45b; 
+  background-color: #1B3D81; 
+  color:white;
 }
 
 
@@ -76,3 +66,56 @@ p {
   cursor: not-allowed;
   opacity: 1 !important; 
 }
+
+.button2 {
+  background-color: #1B3D81;
+  color: white; 
+  font-weight: 700;
+  font-size: 14px;
+  width: 200px;          /* fixed width */
+  height: 50px;          /* fixed height */
+  padding: 10px 24px;    /* padding will adjust text nicely */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.button2:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.4);
+  background-color: #e3c45b; 
+  color:black
+}
+
+
+
+@media (max-width: 768px) {  
+  .button2, .button {
+    width: 160px;
+    height: 70px;
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {  
+  .button2, .button {
+    width: 140px;
+    height: 50px;
+    font-size: 14px;
+    padding: 6px 16px;
+  }
+}
+
+
+.color-selection1 {
+    background-color: #1B3D81;
+}
+
+.color-selection2 {
+    background-color: #C9AE5D
+
+}
+

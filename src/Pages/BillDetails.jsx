@@ -6,6 +6,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const BillDetails = () => {
 
+    document.title = "bill details";
+
     const {user} = use(AuthContext);
 
     const bill = useLoaderData();
@@ -66,7 +68,7 @@ const BillDetails = () => {
 
     return (
     
-        <div className='bg-sky-700 min-h-screen'>
+        <div className='bg-[#1B3D81] min-h-screen'>
 
             <div className='flex flex-col lg:flex-row gap-5  justify-center items-center  p-20'>
 
@@ -77,9 +79,9 @@ const BillDetails = () => {
 
             
                
-               <div className='border-2  border-amber-200 rounded-2xl  bg-[#d4af37] shadow-2xl  '>
+               <div className='border-2 p-4  border-amber-200 rounded-2xl  bg-[#C9AE5D] shadow-2xl text-[#1B3D81]  '>
                  <h1 className=''>Bill Description</h1>
-                 <div className='border-t  border-sky-700 '></div>
+                 <div className='border-t  border-sky-700 mb-2 '></div>
                  <p>{bill.description}Dubai Al Jumairah Limited is a corporation dedicated to providing top-tier luxury and unmatched service to our valued customers. We take pride in maintaining the highest standards of excellence across all our offerings. To continue delivering the quality our clients deserve, it is essential that monthly bills are paid on time. Our advanced online payment management system ensures every customer stays informed and in control of their payments. </p>
                 
                  </div>
@@ -89,17 +91,17 @@ const BillDetails = () => {
 
             <div className='flex flex-col space-y-4'>
 
-                <div className='border-3  flex items-center justify-center  border-amber-200 rounded-lg h-[109px] pt-3'>
-                  <h1>{bill.title}</h1>
+                <div className='border-3  flex items-center justify-center  border-amber-200 rounded-lg h-[109px] pt-3 '>
+                  <h1 className='text-[#C9AE5D]'>{bill.title}</h1>
                 </div>
                  <div className='border-3   border-amber-200 flex items-center justify-center rounded-lg h-[109px]'>
-                  <h1>Your located at {bill.location}</h1>
+                  <h1 className='text-[#C9AE5D]'>Your located at {bill.location}</h1>
                 </div>
                  <div className='border-3 flex justify-center items-center border-amber-200 rounded-lg h-[109px]'>
-                  <h1>Please Pay ${bill.amount}</h1>
+                  <h1 className='text-[#C9AE5D]'>Please Pay ${bill.amount}</h1>
                 </div>
                    <div className='border-3 flex justify-center items-center border-amber-200 rounded-lg h-[109px]'>
-                  <h1> Due On: {bill.date}</h1>
+                  <h1 className='text-[#C9AE5D]'> Due On: {bill.date}</h1>
                 </div>
 
                 <button onClick={handleModal} className = "button" disabled = {!billValidation}>{!billValidation?"Sorry This Bill Is Already Past Due":"Pay Now"}</button>
