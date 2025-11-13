@@ -15,7 +15,7 @@ const Bills = () => {
 
      useEffect(()=> {
         if(category){
-        fetch(`http://localhost:3000/bills?category=${category}`).then(res => res.json())
+        fetch(`https://ph-assignment10-server-livid.vercel.app/bills?category=${category}`).then(res => res.json())
         .then(data => setBills(data))
      } else {
       setBills(totalBills)

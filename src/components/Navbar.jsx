@@ -55,19 +55,19 @@ const Navbar = () => {
                
             </nav>
 
-            <div className='color-selection1 text-white'>
+            <div className='color-selection1 text-white flex justify-center items-center gap-7 text-lg font-poppins '>
 
           
-
- <div className='flex gap-6 text-lg justify-center font-poppins'>
-                    {/* <NavLink  to = {'/about'}>About</NavLink> */}
-                    <Link  to = {'/'}>Home</Link>
-                 
-                    <Link  to = {'/bills'}>Bills</Link>
-                    <Link to = {'/mybills'}>Manage Your Bills</Link>
+              <div>
+                    <Link  to = {'/'}>Home</Link> </div>
+              <div> <Link  to = {'/bills'}>Bills</Link></div>
+              <div> <Link to = {'/mybills'}>Manage Your Bills</Link></div>
+ 
+                   
+                   
                     
 
-                </div>
+              
 
 
             </div>

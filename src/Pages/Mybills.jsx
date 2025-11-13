@@ -18,7 +18,7 @@ const Mybills = () => {
 
   const fetchBills = () => {
     if (user?.email) {
-      fetch(`http://localhost:3000/mybills?email=${user.email}`)
+      fetch(`https://ph-assignment10-server-livid.vercel.app/mybills?email=${user.email}`)
         .then(res => res.json())
         .then(data => setBills(data));
     }
@@ -67,7 +67,7 @@ const handleDeleteModal = (bill) =>{
       }
     
 
-    fetch(`http://localhost:3000/mybills/${id}`, {
+    fetch(`https://ph-assignment10-server-livid.vercel.app/mybills/${id}`, {
       method: 'PATCH',
       headers: {
         'content-type':'application/json'
@@ -92,7 +92,7 @@ const handleDeleteModal = (bill) =>{
   
     if (!selectedBill) return; 
 
-    fetch(`http://localhost:3000/mybills/${id}`, {
+    fetch(`https://ph-assignment10-server-livid.vercel.app/mybills/${id}`, {
       method: 'DELETE'
 
     }).then(res => res.json()).

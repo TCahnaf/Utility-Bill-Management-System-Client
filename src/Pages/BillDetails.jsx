@@ -45,7 +45,7 @@ const BillDetails = () => {
             date  
         }
 
-        fetch('http://localhost:3000/mybills', {
+        fetch('https://ph-assignment10-server-livid.vercel.app/mybills', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

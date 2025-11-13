@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
             {
                 index:true,
                 loader: async() => {
-                  const res = await fetch('http://localhost:3000/bills?limit=6')
+                  const res = await fetch('https://ph-assignment10-server-livid.vercel.app/bills?limit=6')
                   return res.json();
                 },
                 Component: Homepage
@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
               {
                 path: '/bills',
                  loader: async() => {
-                  const res = await fetch('http://localhost:3000/bills')
+                  const res = await fetch('https://ph-assignment10-server-livid.vercel.app/bills')
                   return res.json();
                 },
                 Component: Bills
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
             {
                  path: '/bill/details/:id',
                   loader: async({params}) => {
-                  const res = await fetch(`http://localhost:3000/bills/${params.id}`)
+                  const res = await fetch(`https://ph-assignment10-server-livid.vercel.app/bills/${params.id}`)
                   return res.json();
                 },
 
