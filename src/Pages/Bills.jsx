@@ -26,9 +26,9 @@ const Bills = () => {
 
 
     return (
-        <div className=' bg-[#C9AE5D] min-h-screen   '>
+        <div className=' bg-[#C9AE5D] min-h-screen p-20   '>
             
-<div className=" p-8 lg:p-4 flex flex-col space-y-2 ">
+<div className=" flex flex-col space-y-2  ">
   <label className = "text-2xl">
     Filter Bills By Categories
   </label>
@@ -47,6 +47,7 @@ const Bills = () => {
       <option value="Waste">Waste Management</option>
       <option value="Internet">Internet</option>
     </select>
+    
 
 <div className='flex justify-center'><div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 '>
 
@@ -59,11 +60,11 @@ const Bills = () => {
     
     </div>
 
-
-
-
-
 </div>
+
+
+
+
 
 
             

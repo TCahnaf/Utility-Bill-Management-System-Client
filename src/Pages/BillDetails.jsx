@@ -135,7 +135,7 @@ const BillDetails = () => {
         <input type="text" name = 'phone' placeholder='your number'  className='input ' />
 
            <label className='label'>Date</label>
-        <input type="text" defaultValue = {today} name = 'date'  className='input' />
+        <input type="text" defaultValue = {today} name = 'date'  className='input' readOnly />
          <button className='button mt-2 '>Pay Now</button>
         </fieldset>
 

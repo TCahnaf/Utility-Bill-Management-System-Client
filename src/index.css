@@ -21,9 +21,21 @@ h1 {
   margin: 8px;
 }
 
-.image{
-  height: 500px ;
-  width: 600px;
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.3px;
+    margin: 4px;
+  }
 }
 
 

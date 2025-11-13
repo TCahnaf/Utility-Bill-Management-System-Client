@@ -176,7 +176,7 @@ const handleDeleteModal = (bill) =>{
   
 </div>
 <div className='flex mt-10 justify-center'>
-  <button className={`${bills.length === 0?"hidden":"button2"} `} onClick = {reportDownload}>Download Bill Information</button>
+  <button className={`${bills.length === 0?"hidden":"button2"} `} onClick = {reportDownload}>Download Bill Info</button>
 </div>
 
 
@@ -187,7 +187,7 @@ const handleDeleteModal = (bill) =>{
     
     <form onSubmit={ (e) => updateBill(e,selectedBill._id)} > 
          <fieldset className="fieldset">
-         <label className='label'>Amount Due</label>
+         <label className='label'>Adjust Amount</label>
         <input type="text" name='amount' defaultValue={selectedBill?.amount || '' } className='input'/>
            <label className='label'>Address</label>
         <input type="text" name = 'address' defaultValue={selectedBill?.address || '' }  className='input' />
